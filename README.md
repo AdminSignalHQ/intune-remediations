@@ -16,6 +16,9 @@ Production-ready, battle-tested Detection and Remediation script packages for **
 | [**Windows-Update-Agent-Repair**](Remediations/Windows-Update-Agent-Repair) | Fix broken Windows Update / WUfB client states | Detects disabled services, hung BITS jobs, or corrupt datastore | Restarts services, clears pending queue, re-registers DLLs |
 | [**BitLocker-Key-Escrow-Verify**](Remediations/BitLocker-Key-Escrow-Verify) | Ensure OS BitLocker recovery keys exist in Entra ID | Checks if current volume recovery key is backed up to Entra ID | Triggers Backup-BitLockerKeyProtector into Entra ID |
 | [**Pending-Reboot-Notifier**](Remediations/Pending-Reboot-Notifier) | Audit pending reboot states before deployments | Checks CBS, WUfB, and PendingFileRenameOperations | Outputs pending reboot causes to Intune Admin Center |
+| [**Stale-UserProfile-Cleanup**](Remediations/Stale-UserProfile-Cleanup) | Reclaim disk space prior to Windows 11 Feature Updates | Detects unloaded local user profiles unused for >60 days | Safely deletes stale profiles via Win32_UserProfile CIM |
+| [**Time-Sync-NTP-Repair**](Remediations/Time-Sync-NTP-Repair) | Prevent Kerberos & Entra PRT token failures from clock drift | Detects stopped W32Time service | Starts W32Time and triggers w32tm /resync /force |
+| [**Delivery-Optimization-Cache-Reset**](Remediations/Delivery-Optimization-Cache-Reset) | Prevent DO peer cache from filling small SSDs | Checks if Delivery Optimization cache exceeds 15 GB | Runs Delete-DeliveryOptimizationCache -Force |
 
 ---
 
@@ -54,3 +57,4 @@ In accordance with Microsoft Intune Remediation architecture:
 * [GPO vs. Intune Precedence: Demystifying MDMWinsOverGP in Hybrid Join](https://adminsignal.com)
 * [Troubleshooting Windows Update for Business Failures with Intune](https://adminsignal.com)
 * [Validating BitLocker Compliance and Entra ID Escrow](https://adminsignal.com)
+
